@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="flex flex-row justify-between items-center z-10 sticky top-0 backdrop-blur-[10px] bg-white/80 text-zinc-900 dark:bg-black/80 dark:text-white px-6 py-4 border-b border-zinc-300 dark:border-white-200">
+    <nav className="flex flex-row justify-between items-center z-10 sticky top-0 backdrop-blur-[8px] bg-white/60 text-zinc-900 dark:bg-black/60 dark:text-white px-6 py-4 border-b border-zinc-300 dark:border-white-200">
       <div className="text-xl font-bold">StartUp</div>
       <ul className="gap-4 hidden md:flex">
         {navLinks.map((link) => (
@@ -44,12 +44,13 @@ const Navbar: React.FC = () => {
         variant="outline"
         size="sm"
         onClick={toggleTheme}
-        className="items-center gap-2 hidden md:flex"
+        className="items-center gap-2 "
       >
         {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
         {theme === "light" ? "Dark" : "Light"}
       </Button>
-      <Sheet>
+
+      {/* <Sheet>
         <SheetTrigger className="md:hidden z-[200]">
           <MenuIcon size={24} />
         </SheetTrigger>
@@ -62,7 +63,7 @@ const Navbar: React.FC = () => {
             </SheetDescription>
           </SheetHeader>
         </SheetContent>
-      </Sheet>
+      </Sheet> */}
     </nav>
   );
 };
