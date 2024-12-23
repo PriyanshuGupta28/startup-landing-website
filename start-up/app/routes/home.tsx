@@ -1,5 +1,19 @@
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import type { Route } from "./+types/home";
 import HeroSection from "~/components/HeroSection";
+import { Button } from "~/components/ui/button";
+import Services from "~/components/Services";
+import Workflow from "~/components/Workflow";
+import WhyChooseUs from "~/components/WhyChooseUs";
+import ContactUs from "~/components/ContactUs";
+import { Separator } from "~/components/ui/separator";
 
 export function meta({ data }: Route.MetaArgs) {
   return [
@@ -45,10 +59,38 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function Home({}: Route.ComponentProps) {
   return (
-    <div className="flex flex-col justify-between items-center">
-      <div className="w-[80%]">
+    <div className="flex flex-col justify-between items-center ">
+      <div className="w-[100%] md:w-[80%] flex flex-col gap-5">
         <HeroSection />
+        <Services />
+        <Separator className="my-4" />
+        <h1 className="text-4xl font-bold text-center mt-10"> Our Stats </h1>
+        <div className="flex items-center justify-center p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {StatsData.map((stat, index) => (
+              <Card key={index} className="w-[250px]">
+                <CardHeader>
+                  <CardTitle>{stat.value}</CardTitle>
+                  <CardDescription>{stat.label}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+        <Separator className="my-4" />
+        <Workflow />
+        <Separator className="my-4" />
+        <WhyChooseUs />
+        <Separator className="my-4" />
+        <ContactUs />
       </div>
     </div>
   );
 }
+
+const StatsData = [
+  { value: "50+", label: "Projects Completed" },
+  { value: "100+", label: "Happy Customers" },
+  { value: "6", label: "Years of Experience" },
+  { value: "8+", label: "Team Members" },
+];
