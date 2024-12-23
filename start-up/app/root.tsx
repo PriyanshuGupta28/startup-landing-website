@@ -10,6 +10,7 @@ import stylesheet from "./app.css?url";
 import type { Route } from "./routes/+types/home";
 import { ThemeProvider } from "next-themes";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -48,6 +49,7 @@ export default function App() {
     <ThemeProvider>
       <Navbar />
       <Outlet />
+      <Footer />
     </ThemeProvider>
   );
 }
