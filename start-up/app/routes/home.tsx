@@ -11,6 +11,7 @@ import Workflow from "~/components/Workflow";
 import WhyChooseUs from "~/components/WhyChooseUs";
 import ContactUs from "~/components/ContactUs";
 import { Separator } from "~/components/ui/separator";
+import VirtualStaffingServices from "~/components/VirtualStaffingServices";
 
 export function meta({ data }: Route.MetaArgs) {
   return [
@@ -74,6 +75,8 @@ export default function Home({}: Route.ComponentProps) {
             ))}
           </div>
         </div>
+        <Separator className="my-4" />
+        <VirtualStaffingServices />
         <Separator className="my-4" />
         <Workflow />
         <Separator className="my-4" />
