@@ -1,7 +1,46 @@
 import React from "react";
 import { PersonStandingIcon, Target, Briefcase, Smile } from "lucide-react";
+import type { Route } from "./+types/about";
 
-const AboutUsPage = () => {
+export const meta = ({ data }: Route.MetaArgs) => {
+  return [
+    { title: "About Us | Start Up" },
+    {
+      name: "description",
+      content:
+        "Learn more about our mission, values, and the people who make it all happen.",
+    },
+
+    // OpenGraph tags for social sharing and SEO
+    { property: "og:title", content: "About Us | Start Up" },
+    {
+      property: "og:description",
+      content:
+        "Learn more about our mission, values, and the people who make it all happen.",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://startup.com/about" },
+    { property: "og:image", content: "https://startup.com/og-image.jpg" },
+
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:title", content: "About Us | Start Up" },
+    {
+      name: "twitter:description",
+      content:
+        "Learn more about our mission, values, and the people who make it all happen.",
+    },
+    { name: "twitter:image", content: "https://startup.com/og-image.jpg" },
+
+    // Meta tags for search engines
+    { name: "robots", content: "index, follow" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { canonical: "https://startup.com/about" },
+    { charset: "utf-8" },
+  ];
+};
+
+const AboutUsPage: React.FC<Route.ComponentProps> = () => {
   return (
     <section className="bg-white dark:bg-zinc-950 py-12 px-6 md:px-16">
       <div className="max-w-5xl mx-auto">
