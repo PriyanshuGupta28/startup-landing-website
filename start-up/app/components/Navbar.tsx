@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
             <SheetDescription>Navigation links</SheetDescription>
             {
               <ul className="gap-4">
-                {navLinks.map((link) => (
+                {navLinks.map((link: navLinksType) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
@@ -96,10 +96,15 @@ const Navbar: React.FC = () => {
 
 export default Navbar;
 
-const navLinks = [
+const navLinks: navLinksType[] = [
   { title: "Home", path: "/" },
   { title: "Projects", path: "project" },
   { title: "About Us", path: "about" },
   { title: "Contact Us", path: "contact" },
   { title: "Career", path: "career" },
 ];
+
+type navLinksType = {
+  title: string;
+  path: string;
+};
