@@ -1,14 +1,11 @@
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
 import type { Route } from "./+types/home";
 import HeroSection from "~/components/HeroSection";
-import { Button } from "~/components/ui/button";
 import Services from "~/components/Services";
 import Workflow from "~/components/Workflow";
 import WhyChooseUs from "~/components/WhyChooseUs";
@@ -60,7 +57,7 @@ export function meta({ data }: Route.MetaArgs) {
 export default function Home({}: Route.ComponentProps) {
   return (
     <div className="flex flex-col justify-between items-center ">
-      <div className="w-[100%] md:w-[80%] flex flex-col gap-5">
+      <div className="w-[90%] md:w-[80%] flex flex-col gap-5">
         <HeroSection />
         <Services />
         <Separator className="my-4" />
