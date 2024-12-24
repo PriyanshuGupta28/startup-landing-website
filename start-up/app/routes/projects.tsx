@@ -1,5 +1,34 @@
 import React from "react";
 import { Code, Layers, Globe, Smartphone } from "lucide-react";
+import type { Route } from "./+types/projects";
+
+export const meta = ({ data }: Route.MetaArgs) => {
+  return [
+    { title: "Projects | Start Up" },
+    {
+      name: "description",
+      content: "Discover our latest projects and solutions.",
+    },
+
+    // OpenGraph tags for social sharing and SEO
+    { property: "og:title", content: "Projects | Start Up" },
+    {
+      property: "og:description",
+      content: "Discover our latest projects and solutions.",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://startup.com/projects" },
+    { property: "og:image", content: "https://startup.com/og-image.jpg" },
+
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:title", content: "Projects | Start Up" },
+    {
+      name: "twitter:description",
+      content: "Discover our latest projects and solutions.",
+    },
+  ];
+};
 
 const projects = [
   {
@@ -26,7 +55,7 @@ const projects = [
   },
 ];
 
-const ProjectsPage = () => {
+const ProjectsPage: React.FC<Route.ComponentProps> = () => {
   return (
     <section className="bg-white dark:bg-zinc-950 py-12 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
