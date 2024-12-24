@@ -1,8 +1,101 @@
 import React from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "~/components/ui/button";
+import type { Route } from "./+types/contact";
 
-const ContactUsPage = () => {
+export const meta = () => {
+  return [
+    {
+      title: "Contact Us",
+      description: "Reach out to us for any inquiries or support.",
+    },
+    {
+      "og:title": "Contact Us",
+      "og:description": "Reach out to us for any inquiries or support.",
+    },
+    {
+      "twitter:title": "Contact Us",
+      "twitter:description": "Reach out to us for any inquiries or support.",
+    },
+    {
+      name: "description",
+      content: "Reach out to us for any inquiries or support.",
+    },
+    {
+      property: "og:description",
+      content: "Reach out to us for any inquiries or support.",
+    },
+    {
+      name: "twitter:description",
+      content: "Reach out to us for any inquiries or support.",
+    },
+    {
+      property: "og:title",
+      content: "Contact Us",
+    },
+    {
+      property: "og:description",
+      content: "Reach out to us for any inquiries or support.",
+    },
+    {
+      name: "twitter:title",
+      content: "Contact Us",
+    },
+    {
+      name: "twitter:description",
+      content: "Reach out to us for any inquiries or support.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: "https://startup.com/contact",
+    },
+    {
+      property: "og:image",
+      content: "https://startup.com/og-image.jpg",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:url",
+      content: "https://startup.com/contact",
+    },
+    {
+      name: "twitter:image",
+      content: "https://startup.com/og-image.jpg",
+    },
+    {
+      name: "twitter:image:alt",
+      content: "Contact Us",
+    },
+    {
+      name: "twitter:site",
+      content: "@startup",
+    },
+    {
+      name: "twitter:creator",
+      content: "@startup",
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+    {
+      canonical: "https://startup.com/contact",
+    },
+  ];
+};
+
+const ContactUsPage: React.FC<Route.ComponentProps> = () => {
   return (
     <section className="bg-white dark:bg-zinc-950 py-12 px-6 md:px-16">
       <div className="max-w-5xl mx-auto">
