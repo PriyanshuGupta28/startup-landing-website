@@ -6,7 +6,7 @@ import type { Route } from "./+types/contact";
 export const meta = () => {
   return [
     {
-      title: "Contact Us",
+      title: "Contact Us | Start up",
       description: "Reach out to us for any inquiries or support.",
     },
     {
