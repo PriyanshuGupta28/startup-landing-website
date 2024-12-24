@@ -1,7 +1,64 @@
 import React from "react";
 import { Briefcase, Mail, MapPin } from "lucide-react";
+import type { Route } from "./+types/career";
 
-const Career = () => {
+export const meta = ({}: Route.MetaArgs) => {
+  return [
+    { title: "Career | Start Up" },
+    {
+      name: "description",
+      content: "Join our team and make a difference in the world of business.",
+    },
+    {
+      property: "og:title",
+      content: "Career | Start Up",
+    },
+    {
+      property: "og:description",
+      content: "Join our team and make a difference in the world of business.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: "https://startup.com/career",
+    },
+    {
+      property: "og:image",
+      content: "https://startup.com/og-image.jpg",
+    },
+    {
+      name: "twitter:card",
+      content: "summary",
+    },
+    {
+      name: "twitter:title",
+      content: "Career | Start Up",
+    },
+    {
+      name: "twitter:description",
+      content: "Join our team and make a difference in the world of business.",
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+    {
+      canonical: "https://startup.com/career",
+    },
+    {
+      charset: "utf-8",
+    },
+  ];
+};
+
+const Career: React.FC<Route.ComponentProps> = () => {
   const jobOpenings = [
     {
       title: "Frontend Developer",
