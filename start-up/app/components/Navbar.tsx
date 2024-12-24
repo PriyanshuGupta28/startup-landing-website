@@ -13,6 +13,7 @@ import { Button } from "./ui/button";
 
 const Navbar: React.FC = () => {
   const [theme, setTheme] = useState<string>("light");
+  const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";
@@ -21,7 +22,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   // Toggle theme
-  const toggleTheme = () => {
+  const toggleTheme = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
@@ -44,26 +46,50 @@ const Navbar: React.FC = () => {
         variant="outline"
         size="sm"
         onClick={toggleTheme}
-        className="items-center gap-2 "
+        className="items-center gap-2 hidden md:flex"
       >
         {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
         {theme === "light" ? "Dark" : "Light"}
       </Button>
 
-      {/* <Sheet>
-        <SheetTrigger className="md:hidden z-[200]">
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+        <SheetTrigger
+          className="flex items-center gap-5 md:hidden z-[200]"
+          onClick={() => setIsSheetOpen(true)}
+        >
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleTheme}
+            className="items-center gap-2"
+          >
+            {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+            {theme === "light" ? "Dark" : "Light"}
+          </Button>
           <MenuIcon size={24} />
         </SheetTrigger>
         <SheetContent side={"left"}>
           <SheetHeader>
-            <SheetTitle>Are you absolutely sure?</SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </SheetDescription>
+            <SheetTitle>Menu</SheetTitle>
+            <SheetDescription>Navigation links</SheetDescription>
+            {
+              <ul className="gap-4">
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link
+                      to={link.path}
+                      className="hover:underline text-md"
+                      onClick={() => setIsSheetOpen(false)}
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            }
           </SheetHeader>
         </SheetContent>
-      </Sheet> */}
+      </Sheet>
     </nav>
   );
 };
@@ -71,7 +97,9 @@ const Navbar: React.FC = () => {
 export default Navbar;
 
 const navLinks = [
+  { title: "Home", path: "/" },
   { title: "Projects", path: "project" },
   { title: "About Us", path: "about" },
   { title: "Contact Us", path: "contact" },
+  { title: "Career", path: "career" },
 ];
